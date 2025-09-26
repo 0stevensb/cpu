@@ -1,5 +1,5 @@
 memory = ["LOAD 1",
-          "STORE 2",20
+          "STORE 2",
           "INPUT",
           "STORE 3",
           "INPUT",
@@ -48,6 +48,14 @@ while True:
  elif opcode == "IFJUMP":
   if ram[int(parts[1])] <ram[int(parts[2])]:
    program_counter= int(parts[3])
+ elif opcode == "MULT":
+  accumulator *= int(parts[1])
+ elif opcode == "MMULT":
+  accumulator *= ram[int(parts[1])]
+ elif opcode == "DIV":
+  accumulator /= int(parts[1])
+ elif opcode == "MDIV":
+  accumulator /= ram[int(parts[1])]
  elif opcode == "HALT":
   break
 #print("RAM contents:", ram)
